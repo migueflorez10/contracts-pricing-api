@@ -1,0 +1,25 @@
+package co.com.mmartinez.model.common;
+
+/**
+ * Excepción para cualquier regla de negocio incumplida.
+ */
+public class BusinessException extends RuntimeException {
+
+    private static final long serialVersionUID = 1L;
+
+    private final ErrorCode errorCode;
+
+    public BusinessException(ErrorCode errorCode) {
+        super(errorCode.getMessage());
+        this.errorCode = errorCode;
+    }
+
+    public BusinessException(ErrorCode errorCode, String detail) {
+        super(errorCode.getMessage() + ": " + detail);
+        this.errorCode = errorCode;
+    }
+
+    public ErrorCode getErrorCode() {
+        return errorCode;
+    }
+}
